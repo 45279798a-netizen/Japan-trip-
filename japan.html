@@ -84,7 +84,7 @@ const THEMES = {
     attribution: '&copy; CARTO',
     colors: { bg: 'bg-neutral-950', card: 'bg-neutral-900', cardBlur: 'bg-neutral-900/90', text: 'text-neutral-200', subtext: 'text-neutral-500', border: 'border-yellow-900', accent: 'text-yellow-500', accentBg: 'bg-yellow-600', accentBorder: 'border-yellow-600', highlight: 'text-amber-300', mapBg: '#0a0a0a', navBar: 'bg-neutral-950/90' }
   },
-  // 11. 工業 (修復：改用 Carto Light)
+  // 11. 工業
   industrial: {
     id: 'industrial', name: '工業', icon: Box,
     tileLayer: 'https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', 
@@ -174,16 +174,39 @@ const REAL_LOCATIONS = {
   'Narita Airport': { lat: 35.7719, lng: 140.3929 }, '成田': { lat: 35.7719, lng: 140.3929 },
   'Haneda Airport': { lat: 35.5494, lng: 139.7798 }, '羽田': { lat: 35.5494, lng: 139.7798 },
   'Shinjuku': { lat: 35.6915, lng: 139.7000 }, '新宿': { lat: 35.6915, lng: 139.7000 },
-  'Shibuya': { lat: 35.6580, lng: 139.7016 }, '澀谷': { lat: 35.6580, lng: 139.7016 },
+  'Shibuya': { lat: 35.6580, lng: 139.7016 }, '澀谷': { lat: 35.6580, lng: 139.7016 }, '涉谷': { lat: 35.6580, lng: 139.7016 },
+  'Harajuku': { lat: 35.6702, lng: 139.7026 }, '原宿': { lat: 35.6702, lng: 139.7026 },
+  'Ikebukuro': { lat: 35.7289, lng: 139.7103 }, '池袋': { lat: 35.7289, lng: 139.7103 },
   'Tokyo Station': { lat: 35.6812, lng: 139.7671 }, '東京車站': { lat: 35.6812, lng: 139.7671 },
-  'Asakusa': { lat: 35.7147, lng: 139.7966 }, '淺草': { lat: 35.7147, lng: 139.7966 },
-  'Tokyo Skytree': { lat: 35.7100, lng: 139.8107 }, '晴空塔': { lat: 35.7100, lng: 139.8107 },
+  'Ginza': { lat: 35.6719, lng: 139.7639 }, '銀座': { lat: 35.6719, lng: 139.7639 },
+  'Akihabara': { lat: 35.6983, lng: 139.7730 }, '秋葉原': { lat: 35.6983, lng: 139.7730 },
+  'Ueno': { lat: 35.7140, lng: 139.7740 }, '上野': { lat: 35.7140, lng: 139.7740 },
+  'Asakusa': { lat: 35.7147, lng: 139.7966 }, '淺草': { lat: 35.7147, lng: 139.7966 }, '雷門': { lat: 35.7147, lng: 139.7966 },
+  'Tokyo Skytree': { lat: 35.7100, lng: 139.8107 }, '晴空塔': { lat: 35.7100, lng: 139.8107 }, 'Skytree': { lat: 35.7100, lng: 139.8107 },
+  'Odaiba': { lat: 35.6275, lng: 139.7746 }, '台場': { lat: 35.6275, lng: 139.7746 },
   'Disney': { lat: 35.6329, lng: 139.8804 }, '迪士尼': { lat: 35.6329, lng: 139.8804 },
+  'Kamakura': { lat: 35.3192, lng: 139.5503 }, '鎌倉': { lat: 35.3192, lng: 139.5503 },
+  'Enoshima': { lat: 35.3002, lng: 139.4810 }, '江之島': { lat: 35.3002, lng: 139.4810 },
+  'Yokohama': { lat: 35.4437, lng: 139.6380 }, '橫濱': { lat: 35.4437, lng: 139.6380 },
+  
+  // Osaka
   'Osaka Station': { lat: 34.7025, lng: 135.4959 }, '大阪車站': { lat: 34.7025, lng: 135.4959 },
+  'Umeda': { lat: 34.7025, lng: 135.4959 }, '梅田': { lat: 34.7025, lng: 135.4959 },
+  'Shin-Osaka': { lat: 34.7335, lng: 135.5003 }, '新大阪': { lat: 34.7335, lng: 135.5003 },
+  'Namba': { lat: 34.6664, lng: 135.5023 }, '難波': { lat: 34.6664, lng: 135.5023 },
+  'Shinsaibashi': { lat: 34.6714, lng: 135.5014 }, '心齋橋': { lat: 34.6714, lng: 135.5014 },
   'Dotonbori': { lat: 34.6687, lng: 135.5013 }, '道頓堀': { lat: 34.6687, lng: 135.5013 },
-  'USJ': { lat: 34.6654, lng: 135.4323 }, '環球影城': { lat: 34.6654, lng: 135.4323 },
-  'Kansai Airport': { lat: 34.4320, lng: 135.2304 }, '關西機場': { lat: 34.4320, lng: 135.2304 },
-  'Taoyuan': { lat: 25.0797, lng: 121.2342 }, '桃園': { lat: 25.0797, lng: 121.2342 }
+  'Tennoji': { lat: 34.6474, lng: 135.5132 }, '天王寺': { lat: 34.6474, lng: 135.5132 },
+  'Osaka Castle': { lat: 34.6873, lng: 135.5262 }, '大阪城': { lat: 34.6873, lng: 135.5262 },
+  'USJ': { lat: 34.6654, lng: 135.4323 }, '環球影城': { lat: 34.6654, lng: 135.4323 }, 'Universal': { lat: 34.6654, lng: 135.4323 },
+  'Tsutenkaku': { lat: 34.6525, lng: 135.5063 }, '通天閣': { lat: 34.6525, lng: 135.5063 },
+  'Kaiyukan': { lat: 34.6545, lng: 135.4290 }, '海遊館': { lat: 34.6545, lng: 135.4290 },
+  'Kansai Airport': { lat: 34.4320, lng: 135.2304 }, '關西機場': { lat: 34.4320, lng: 135.2304 }, '關西': { lat: 34.4320, lng: 135.2304 },
+  
+  // Other
+  'Taoyuan': { lat: 25.0797, lng: 121.2342 }, '桃園': { lat: 25.0797, lng: 121.2342 },
+  'Taipei': { lat: 25.0339, lng: 121.5644 }, '台北': { lat: 25.0339, lng: 121.5644 },
+  'Hotel': { lat: 35.6900, lng: 139.7000 }, '飯店': { lat: 35.6900, lng: 139.7000 }
 };
 
 const INITIAL_ITINERARY = [
@@ -195,6 +218,7 @@ const INITIAL_ITINERARY = [
   { id: '5', day: 3, time: '19:00', title: '道頓堀跑跑人', category: 'food', location: '道頓堀', coordinates: { lat: 34.6687, lng: 135.5013 }, mapUrl: '', notes: '章魚燒', cost: { total: 2000, payer: "我", mode: "even", targets: {}, customAmounts: {} } },
 ];
 
+// --- Geocoding Function ---
 const fetchCoordinates = async (locationName) => {
   if (!locationName) return null;
   const cachedKey = Object.keys(REAL_LOCATIONS).find(k => locationName.toLowerCase().includes(k.toLowerCase()));
@@ -207,6 +231,7 @@ const fetchCoordinates = async (locationName) => {
   return null;
 };
 
+// --- 輔助函式 ---
 const calculateBalances = (itinerary, members) => {
   const balances = {};
   members.forEach(m => balances[m] = 0);
@@ -224,7 +249,7 @@ const calculateBalances = (itinerary, members) => {
   return balances;
 };
 
-// --- Components ---
+// --- 組件定義 ---
 
 const CurrencyConverter = ({theme}) => {
   const [jpy, setJpy] = useState('');
@@ -271,6 +296,7 @@ const SettingsTab = ({ totalDays, setTotalDays, travelers, setTravelers, current
     <div className="p-6 space-y-8 pb-24 animate-fadeIn">
       <h2 className={`text-2xl font-bold ${currentTheme.colors.text} mb-6 flex items-center gap-3`}><Settings className={currentTheme.colors.accent} /> 設定</h2>
       
+      {/* Theme Switcher */}
       <div className={`${currentTheme.colors.card} rounded-2xl p-5 border ${currentTheme.colors.border} shadow-lg`}>
         <h3 className={`${currentTheme.colors.subtext} font-bold mb-4 flex items-center gap-2`}><Palette size={18} className="text-fuchsia-400"/> 主題風格</h3>
         <div className="grid grid-cols-3 gap-3 max-h-[300px] overflow-y-auto pr-2">
@@ -304,19 +330,16 @@ const SettingsTab = ({ totalDays, setTotalDays, travelers, setTravelers, current
   );
 };
 
-const DashboardHeader = ({ memberCount, activeDay, onDayChange, totalDays, theme, activeRegion }) => {
+const DashboardHeader = ({ memberCount, activeDay, onDayChange, totalDays, theme, activeRegion, setTheme }) => {
   const [now, setNow] = useState(new Date());
   const [weather, setWeather] = useState({ temp: '--', icon: Sun, text: '載入中...', isDay: true });
 
   useEffect(() => { 
     const t = setInterval(() => setNow(new Date()), 1000); 
-    
-    // V69 Update: Dynamic weather fetching based on active region
     const fetchWeather = async () => {
         try {
             const coords = REGION_COORDS[activeRegion];
             if (!coords) return;
-
             const res = await fetch(`https://api.open-meteo.com/v1/forecast?latitude=${coords.lat}&longitude=${coords.lng}&current_weather=true&timezone=Asia%2FTokyo`);
             const data = await res.json();
             if (data.current_weather) {
@@ -345,25 +368,37 @@ const DashboardHeader = ({ memberCount, activeDay, onDayChange, totalDays, theme
   const WeatherIcon = weather.icon;
   const regionName = REGION_COORDS[activeRegion]?.name || '日本';
 
+  const handleThemeCycle = () => {
+    const themeValues = Object.values(THEMES);
+    const currentIndex = themeValues.findIndex(t => t.id === theme.id);
+    const nextIndex = (currentIndex + 1) % themeValues.length;
+    setTheme(themeValues[nextIndex]);
+  };
+
   return (
     <div className={`${theme.colors.navBar} backdrop-blur-md ${theme.colors.text} rounded-b-[2rem] shadow-[0_10px_30px_-10px_rgba(0,0,0,0.2)] z-30 relative overflow-hidden border-b ${theme.colors.border} flex-shrink-0 transition-colors duration-500`}>
       <div className="pt-5 px-6 pb-4 relative">
         <div className="flex justify-between items-start mb-6">
           <div className="pt-1">
             <h1 className={`text-3xl font-black tracking-wider ${theme.colors.text} flex items-center gap-2 font-mono italic`}>
-              TOKYO <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500">OS</span> <span className={`text-[10px] not-italic ${theme.colors.subtext} border ${theme.colors.border} px-1 rounded ${theme.colors.bg}`}>v3.0</span>
+              TOKYO <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500">OS</span> <span className={`text-[10px] not-italic ${theme.colors.subtext} border ${theme.colors.border} px-1.5 py-0.5 rounded-md ${theme.colors.bg} tracking-normal`}>v2.1.1</span>
             </h1>
-            <div className={`text-xs ${theme.colors.subtext} mt-2 flex items-center gap-2`}>
-              <span className={`flex items-center gap-1 ${theme.colors.cardBlur} px-2 py-1 rounded-full border ${theme.colors.border} shadow-sm`}>
+            <div className={`text-xs ${theme.colors.subtext} mt-2 flex items-center gap-2 flex-wrap`}>
+              <span className={`flex items-center gap-1.5 ${theme.colors.cardBlur} px-3 py-1 rounded-full border ${theme.colors.border} shadow-sm`}>
                 <Users size={10} className={theme.colors.accent}/> {memberCount} 人旅團
               </span>
-              <span className={`flex items-center gap-1 ${theme.colors.cardBlur} px-2 py-1 rounded-full border ${theme.colors.border} shadow-sm`}>
+              <span className={`flex items-center gap-1.5 ${theme.colors.cardBlur} px-3 py-1 rounded-full border ${theme.colors.border} shadow-sm`}>
                 <Zap size={10} className="text-yellow-400"/> 在線
               </span>
+              {/* Theme Switcher Button */}
+              <button onClick={handleThemeCycle} className={`flex items-center gap-1.5 ${theme.colors.cardBlur} px-3 py-1 rounded-full border ${theme.colors.border} shadow-sm hover:opacity-80 transition-opacity`}>
+                 <Palette size={10} className={theme.colors.accent}/>
+                 <span className="font-bold">切換主題</span>
+              </button>
             </div>
           </div>
           <div className="text-right flex flex-col items-end">
-            <div className={`text-5xl font-black font-mono leading-[0.9] ${theme.colors.text} tracking-tighter drop-shadow-lg`}>{timeStr}</div>
+            <div className={`text-5xl md:text-6xl font-black font-mono leading-[0.9] ${theme.colors.text} tracking-tighter drop-shadow-lg`}>{timeStr}</div>
             <div className="flex items-center gap-2 mt-2">
                <div className={`flex items-center gap-2 px-3 py-1 rounded-lg ${theme.colors.bg} border ${theme.colors.border} shadow-sm`}>
                   <Calendar size={12} className={theme.colors.accent} /> 
@@ -378,7 +413,7 @@ const DashboardHeader = ({ memberCount, activeDay, onDayChange, totalDays, theme
         </div>
         <div className="flex gap-2 overflow-x-auto scrollbar-hide pb-2 pt-1">
           {days.map(day => (
-            <button key={day} onClick={() => onDayChange(day)} className={`snap-start flex-shrink-0 flex flex-col items-center justify-center w-12 h-16 rounded-2xl transition-all border duration-300 relative overflow-hidden group ${activeDay === day ? `${theme.colors.card} ${theme.colors.accentBorder} shadow-lg scale-105` : `${theme.colors.bg} ${theme.colors.border} ${theme.colors.subtext} hover:opacity-80`}`}>
+            <button key={day} onClick={() => onDayChange(day)} className={`snap-start flex-shrink-0 flex flex-col items-center justify-center w-12 h-16 rounded-2xl transition-all border duration-300 relative overflow-hidden group border ${activeDay === day ? `${theme.colors.card} ${theme.colors.accentBorder} shadow-lg scale-105` : `${theme.colors.bg} ${theme.colors.border} ${theme.colors.subtext} hover:opacity-80`}`}>
               <div className={`absolute top-0 left-0 w-full h-1.5 ${activeDay === day ? theme.colors.accentBg : 'bg-transparent'}`}/>
               <span className={`text-[10px] uppercase font-black opacity-50 mt-2 ${activeDay === day ? theme.colors.accent : theme.colors.subtext}`}>Day</span>
               <span className="text-xl font-bold font-mono">{day}</span>
@@ -447,11 +482,21 @@ const LeafletMap = ({ items, activeRegion, theme, setActiveRegion, setEditingIte
   useEffect(() => {
       if (!mapInstanceRef.current || !window.L) return;
       const map = mapInstanceRef.current;
-      map.eachLayer(layer => { if (layer instanceof window.L.TileLayer) map.removeLayer(layer); });
-      window.L.tileLayer(theme.tileLayer, { attribution: theme.attribution, maxZoom: 19 }).addTo(map);
+
+      map.eachLayer(layer => {
+          if (layer instanceof window.L.TileLayer) map.removeLayer(layer);
+      });
+
+      window.L.tileLayer(theme.tileLayer, {
+          attribution: theme.attribution,
+          maxZoom: 19
+      }).addTo(map);
+
       const region = REGION_COORDS[activeRegion];
       map.flyTo([region.lat, region.lng], region.zoom);
+      
       setTimeout(() => map.invalidateSize(), 200); // Critical fix
+
   }, [activeRegion, theme]);
 
   // 4. Render Markers & Path
@@ -522,6 +567,8 @@ const LeafletMap = ({ items, activeRegion, theme, setActiveRegion, setEditingIte
            </div>
        )}
        <div ref={mapContainerRef} className="w-full h-full z-0" style={{ background: theme.colors.bg, isolation: 'isolate' }} />
+       
+       {/* Region Switcher */}
        <div className="absolute top-4 left-4 z-[400] flex flex-col gap-2">
          <div className={`${theme.colors.cardBlur} backdrop-blur border ${theme.colors.border} p-1 rounded-xl flex flex-col gap-1 shadow-lg`}>
             {Object.entries(REGION_COORDS).map(([key, val]) => (
@@ -529,6 +576,8 @@ const LeafletMap = ({ items, activeRegion, theme, setActiveRegion, setEditingIte
             ))}
          </div>
       </div>
+
+      {/* Zoom Controls */}
       <div className="absolute top-20 right-4 z-[500] flex flex-col gap-3 pointer-events-auto">
         <div className={`${theme.colors.cardBlur} backdrop-blur rounded-xl border ${theme.colors.border} overflow-hidden flex flex-col shadow-lg`}>
             <button onClick={handleZoomIn} className={`p-3 ${theme.colors.accent} hover:${theme.colors.bg} border-b ${theme.colors.border}`}><ZoomIn size={20}/></button>
@@ -736,7 +785,7 @@ export default function App() {
   return (
     <div className={`h-[100dvh] ${currentTheme.colors.bg} font-sans ${currentTheme.colors.text} overflow-hidden flex flex-col relative transition-colors duration-500`}>
       {/* Pass activeRegion to Header */}
-      <DashboardHeader memberCount={travelers.length} activeDay={activeDay} onDayChange={setActiveDay} totalDays={totalDays} theme={currentTheme} activeRegion={activeRegion}/>
+      <DashboardHeader memberCount={travelers.length} activeDay={activeDay} onDayChange={setActiveDay} totalDays={totalDays} theme={currentTheme} activeRegion={activeRegion} setTheme={setTheme}/>
       
       <div ref={contentRef} className="flex-1 overflow-y-auto relative scroll-smooth">
         {viewMode === 'list' && <TimelineList items={dayItems} setEditingItem={setEditingItem} handleAddItem={handleAddItem} theme={currentTheme} />}
