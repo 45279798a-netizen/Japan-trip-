@@ -7,151 +7,131 @@ import {
   PieChart, ArrowRight, Link as LinkIcon,
   Search, Globe, Hotel, CornerDownLeft,
   Navigation, Calendar, UserPlus, Minus, Calculator, Check, RefreshCw, LocateFixed, Upload,
-  Zap, Bell, MoreVertical, ExternalLink, Image, Palette, Moon, Cloud,
-  Leaf, Mountain, Coffee, Map, Plane, Anchor, AlertTriangle, HelpCircle, Loader2, Hash, Snowflake, CloudRain, Wand2,
+  Zap, Bell, MoreVertical, ExternalLink, Palette, Moon, Cloud,
+  Leaf, Mountain, Coffee, Plane, Anchor, AlertTriangle, HelpCircle, Loader2, Hash, Snowflake, CloudRain, Wand2,
   Waves, Sunset, Flower2, Crown, Box, Trees, Wind, Droplets, Cpu, Code, Shield
 } from 'lucide-react';
 
-// --- 3.0 版：20 種主題全集 ---
+// --- 1. 資料與設定 ---
 const THEMES = {
-  // 1. 經典
   cyberpunk: {
     id: 'cyberpunk', name: 'Cyberpunk', icon: Zap,
     tileLayer: 'https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png',
-    attribution: '&copy; CARTO',
+    attribution: '© CARTO',
     colors: { bg: 'bg-slate-950', card: 'bg-slate-900', cardBlur: 'bg-slate-900/80', text: 'text-slate-200', subtext: 'text-slate-400', border: 'border-slate-800', accent: 'text-cyan-400', accentBg: 'bg-cyan-500', accentBorder: 'border-cyan-500', highlight: 'text-emerald-400', mapBg: '#020617', navBar: 'bg-slate-950/80' }
   },
-  // 2. 日系
   sakura: {
     id: 'sakura', name: '櫻花', icon: Sun,
     tileLayer: 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
-    attribution: '&copy; OSM',
+    attribution: '© OSM',
     colors: { bg: 'bg-pink-50', card: 'bg-white', cardBlur: 'bg-white/80', text: 'text-slate-800', subtext: 'text-slate-500', border: 'border-pink-200', accent: 'text-pink-500', accentBg: 'bg-pink-500', accentBorder: 'border-pink-400', highlight: 'text-rose-500', mapBg: '#fff1f2', navBar: 'bg-white/80' }
   },
-  // 3. 暗色
   midnight: {
     id: 'midnight', name: '午夜', icon: Moon,
     tileLayer: 'https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png',
-    attribution: '&copy; CARTO',
+    attribution: '© CARTO',
     colors: { bg: 'bg-indigo-950', card: 'bg-indigo-900', cardBlur: 'bg-indigo-900/80', text: 'text-indigo-100', subtext: 'text-indigo-300', border: 'border-indigo-800', accent: 'text-violet-400', accentBg: 'bg-violet-500', accentBorder: 'border-violet-500', highlight: 'text-amber-400', mapBg: '#0f172a', navBar: 'bg-indigo-950/80' }
   },
-  // 4. 自然
   matcha: {
     id: 'matcha', name: '抹茶', icon: Leaf,
     tileLayer: 'https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png',
-    attribution: '&copy; CARTO',
+    attribution: '© CARTO',
     colors: { bg: 'bg-emerald-950', card: 'bg-emerald-900', cardBlur: 'bg-emerald-900/80', text: 'text-emerald-50', subtext: 'text-emerald-300/70', border: 'border-emerald-800', accent: 'text-lime-400', accentBg: 'bg-lime-500', accentBorder: 'border-lime-500', highlight: 'text-orange-300', mapBg: '#022c22', navBar: 'bg-emerald-950/80' }
   },
-  // 5. 冷色
   fuji: {
     id: 'fuji', name: '富士', icon: Mountain,
     tileLayer: 'https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png',
-    attribution: '&copy; CARTO',
+    attribution: '© CARTO',
     colors: { bg: 'bg-slate-50', card: 'bg-white', cardBlur: 'bg-white/90', text: 'text-slate-900', subtext: 'text-slate-500', border: 'border-slate-200', accent: 'text-blue-600', accentBg: 'bg-blue-600', accentBorder: 'border-blue-500', highlight: 'text-red-500', mapBg: '#f8fafc', navBar: 'bg-slate-50/90' }
   },
-  // 6. 復古
   retro: {
     id: 'retro', name: '昭和', icon: Coffee,
     tileLayer: 'https://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png',
-    attribution: '&copy; OSM',
+    attribution: '© OSM',
     colors: { bg: 'bg-stone-950', card: 'bg-stone-900', cardBlur: 'bg-stone-900/80', text: 'text-stone-200', subtext: 'text-stone-400', border: 'border-stone-800', accent: 'text-orange-400', accentBg: 'bg-orange-500', accentBorder: 'border-orange-500', highlight: 'text-yellow-400', mapBg: '#1c1917', navBar: 'bg-stone-950/80' }
   },
-  // 7. 海洋
   ocean: {
     id: 'ocean', name: '深海', icon: Waves,
     tileLayer: 'https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png',
-    attribution: '&copy; CARTO',
+    attribution: '© CARTO',
     colors: { bg: 'bg-cyan-950', card: 'bg-cyan-900', cardBlur: 'bg-cyan-900/80', text: 'text-cyan-50', subtext: 'text-cyan-300', border: 'border-cyan-800', accent: 'text-sky-400', accentBg: 'bg-sky-500', accentBorder: 'border-sky-400', highlight: 'text-teal-300', mapBg: '#083344', navBar: 'bg-cyan-950/80' }
   },
-  // 8. 黃昏
   sunset: {
     id: 'sunset', name: '夕陽', icon: Sunset,
     tileLayer: 'https://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png',
-    attribution: '&copy; OSM',
+    attribution: '© OSM',
     colors: { bg: 'bg-orange-950', card: 'bg-orange-900', cardBlur: 'bg-orange-900/80', text: 'text-orange-50', subtext: 'text-orange-300', border: 'border-orange-800', accent: 'text-yellow-400', accentBg: 'bg-yellow-500', accentBorder: 'border-yellow-500', highlight: 'text-red-400', mapBg: '#431407', navBar: 'bg-orange-950/80' }
   },
-  // 9. 夢幻
   lavender: {
     id: 'lavender', name: '紫藤', icon: Flower2,
     tileLayer: 'https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png',
-    attribution: '&copy; CARTO',
+    attribution: '© CARTO',
     colors: { bg: 'bg-purple-50', card: 'bg-white', cardBlur: 'bg-white/90', text: 'text-purple-950', subtext: 'text-purple-500', border: 'border-purple-200', accent: 'text-fuchsia-600', accentBg: 'bg-fuchsia-600', accentBorder: 'border-fuchsia-500', highlight: 'text-violet-600', mapBg: '#fdf4ff', navBar: 'bg-purple-50/90' }
   },
-  // 10. 奢華
   luxury: {
     id: 'luxury', name: '黑金', icon: Crown,
     tileLayer: 'https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png',
-    attribution: '&copy; CARTO',
+    attribution: '© CARTO',
     colors: { bg: 'bg-neutral-950', card: 'bg-neutral-900', cardBlur: 'bg-neutral-900/90', text: 'text-neutral-200', subtext: 'text-neutral-500', border: 'border-yellow-900', accent: 'text-yellow-500', accentBg: 'bg-yellow-600', accentBorder: 'border-yellow-600', highlight: 'text-amber-300', mapBg: '#0a0a0a', navBar: 'bg-neutral-950/90' }
   },
-  // 11. 工業
   industrial: {
     id: 'industrial', name: '工業', icon: Box,
-    tileLayer: 'https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', 
-    attribution: '&copy; CARTO',
+    tileLayer: 'https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png',
+    attribution: '© CARTO',
     colors: { bg: 'bg-zinc-100', card: 'bg-white', cardBlur: 'bg-white/80', text: 'text-zinc-800', subtext: 'text-zinc-500', border: 'border-zinc-300', accent: 'text-zinc-900', accentBg: 'bg-zinc-800', accentBorder: 'border-zinc-800', highlight: 'text-red-600', mapBg: '#f4f4f5', navBar: 'bg-zinc-100/90' }
   },
-  // 12. 森林
   forest: {
     id: 'forest', name: '森林', icon: Trees,
     tileLayer: 'https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png',
-    attribution: '&copy; CARTO',
+    attribution: '© CARTO',
     colors: { bg: 'bg-green-900', card: 'bg-green-800', cardBlur: 'bg-green-800/80', text: 'text-green-50', subtext: 'text-green-300', border: 'border-green-700', accent: 'text-emerald-400', accentBg: 'bg-emerald-500', accentBorder: 'border-emerald-500', highlight: 'text-lime-300', mapBg: '#064e3b', navBar: 'bg-green-900/80' }
   },
-  // 13. 秋日
   autumn: {
     id: 'autumn', name: '楓葉', icon: Wind,
     tileLayer: 'https://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png',
-    attribution: '&copy; OSM',
+    attribution: '© OSM',
     colors: { bg: 'bg-amber-50', card: 'bg-white', cardBlur: 'bg-white/90', text: 'text-amber-900', subtext: 'text-amber-600', border: 'border-amber-200', accent: 'text-orange-600', accentBg: 'bg-orange-600', accentBorder: 'border-orange-500', highlight: 'text-red-600', mapBg: '#fffbeb', navBar: 'bg-amber-50/90' }
   },
-  // 14. 螢光
   neon: {
     id: 'neon', name: '螢光', icon: Zap,
     tileLayer: 'https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png',
-    attribution: '&copy; CARTO',
+    attribution: '© CARTO',
     colors: { bg: 'bg-black', card: 'bg-gray-900', cardBlur: 'bg-gray-900/90', text: 'text-white', subtext: 'text-gray-400', border: 'border-fuchsia-600', accent: 'text-fuchsia-400', accentBg: 'bg-fuchsia-600', accentBorder: 'border-fuchsia-500', highlight: 'text-yellow-300', mapBg: '#000000', navBar: 'bg-black/90' }
   },
-  // 15. 薄荷
   mint: {
     id: 'mint', name: '薄荷', icon: Droplets,
     tileLayer: 'https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png',
-    attribution: '&copy; CARTO',
+    attribution: '© CARTO',
     colors: { bg: 'bg-teal-50', card: 'bg-white', cardBlur: 'bg-white/80', text: 'text-teal-900', subtext: 'text-teal-600', border: 'border-teal-200', accent: 'text-teal-500', accentBg: 'bg-teal-500', accentBorder: 'border-teal-400', highlight: 'text-cyan-600', mapBg: '#f0fdfa', navBar: 'bg-teal-50/80' }
   },
-  // 16. 吸血鬼
   dracula: {
     id: 'dracula', name: 'Dracula', icon: Moon,
     tileLayer: 'https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png',
-    attribution: '&copy; CARTO',
+    attribution: '© CARTO',
     colors: { bg: 'bg-[#282a36]', card: 'bg-[#44475a]', cardBlur: 'bg-[#44475a]/90', text: 'text-[#f8f8f2]', subtext: 'text-[#bd93f9]', border: 'border-[#6272a4]', accent: 'text-[#ff79c6]', accentBg: 'bg-[#ff79c6]', accentBorder: 'border-[#ff79c6]', highlight: 'text-[#50fa7b]', mapBg: '#282a36', navBar: 'bg-[#282a36]/90' }
   },
-  // 17. 北歐
   nordic: {
     id: 'nordic', name: '北歐', icon: Snowflake,
     tileLayer: 'https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png',
-    attribution: '&copy; CARTO',
+    attribution: '© CARTO',
     colors: { bg: 'bg-slate-100', card: 'bg-white', cardBlur: 'bg-white/90', text: 'text-slate-700', subtext: 'text-slate-400', border: 'border-slate-200', accent: 'text-blue-400', accentBg: 'bg-blue-400', accentBorder: 'border-blue-400', highlight: 'text-indigo-400', mapBg: '#f1f5f9', navBar: 'bg-slate-100/90' }
   },
-  // 18. 暖陽
   solar: {
     id: 'solar', name: '暖陽', icon: Sun,
     tileLayer: 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
-    attribution: '&copy; OSM',
+    attribution: '© OSM',
     colors: { bg: 'bg-yellow-50', card: 'bg-white', cardBlur: 'bg-white/90', text: 'text-yellow-900', subtext: 'text-yellow-600', border: 'border-yellow-200', accent: 'text-yellow-500', accentBg: 'bg-yellow-500', accentBorder: 'border-yellow-500', highlight: 'text-orange-500', mapBg: '#fefce8', navBar: 'bg-yellow-50/90' }
   },
-  // 19. 駭客
   matrix: {
     id: 'matrix', name: 'Matrix', icon: Code,
     tileLayer: 'https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png',
-    attribution: '&copy; CARTO',
+    attribution: '© CARTO',
     colors: { bg: 'bg-black', card: 'bg-black', cardBlur: 'bg-black/90', text: 'text-green-500', subtext: 'text-green-700', border: 'border-green-800', accent: 'text-green-400', accentBg: 'bg-green-600', accentBorder: 'border-green-500', highlight: 'text-white', mapBg: '#000000', navBar: 'bg-black/90' }
   },
-  // 20. 鋼彈
   gundam: {
     id: 'gundam', name: '鋼彈', icon: Shield,
     tileLayer: 'https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png',
-    attribution: '&copy; CARTO',
+    attribution: '© CARTO',
     colors: { bg: 'bg-gray-100', card: 'bg-white', cardBlur: 'bg-white/90', text: 'text-blue-900', subtext: 'text-gray-500', border: 'border-red-600', accent: 'text-blue-600', accentBg: 'bg-blue-600', accentBorder: 'border-blue-600', highlight: 'text-yellow-500', mapBg: '#f3f4f6', navBar: 'bg-gray-100/90' }
   }
 };
@@ -218,7 +198,7 @@ const INITIAL_ITINERARY = [
   { id: '5', day: 3, time: '19:00', title: '道頓堀跑跑人', category: 'food', location: '道頓堀', coordinates: { lat: 34.6687, lng: 135.5013 }, mapUrl: '', notes: '章魚燒', cost: { total: 2000, payer: "我", mode: "even", targets: {}, customAmounts: {} } },
 ];
 
-// --- Geocoding Function ---
+// --- 2. 輔助函式 ---
 const fetchCoordinates = async (locationName) => {
   if (!locationName) return null;
   const cachedKey = Object.keys(REAL_LOCATIONS).find(k => locationName.toLowerCase().includes(k.toLowerCase()));
@@ -231,7 +211,6 @@ const fetchCoordinates = async (locationName) => {
   return null;
 };
 
-// --- 輔助函式 ---
 const calculateBalances = (itinerary, members) => {
   const balances = {};
   members.forEach(m => balances[m] = 0);
@@ -249,7 +228,7 @@ const calculateBalances = (itinerary, members) => {
   return balances;
 };
 
-// --- 組件定義 ---
+// --- 3. 組件定義 ---
 
 const CurrencyConverter = ({theme}) => {
   const [jpy, setJpy] = useState('');
@@ -381,7 +360,7 @@ const DashboardHeader = ({ memberCount, activeDay, onDayChange, totalDays, theme
         <div className="flex justify-between items-start mb-6">
           <div className="pt-1">
             <h1 className={`text-3xl font-black tracking-wider ${theme.colors.text} flex items-center gap-2 font-mono italic`}>
-              TOKYO <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500">OS</span> <span className={`text-[10px] not-italic ${theme.colors.subtext} border ${theme.colors.border} px-1.5 py-0.5 rounded-md ${theme.colors.bg} tracking-normal`}>v2.1.1</span>
+              TOKYO <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500">OS</span> <span className={`text-[10px] not-italic ${theme.colors.subtext} border ${theme.colors.border} px-1.5 py-0.5 rounded-md ${theme.colors.bg} tracking-normal`}>v2.1.2</span>
             </h1>
             <div className={`text-xs ${theme.colors.subtext} mt-2 flex items-center gap-2 flex-wrap`}>
               <span className={`flex items-center gap-1.5 ${theme.colors.cardBlur} px-3 py-1 rounded-full border ${theme.colors.border} shadow-sm`}>
@@ -390,7 +369,6 @@ const DashboardHeader = ({ memberCount, activeDay, onDayChange, totalDays, theme
               <span className={`flex items-center gap-1.5 ${theme.colors.cardBlur} px-3 py-1 rounded-full border ${theme.colors.border} shadow-sm`}>
                 <Zap size={10} className="text-yellow-400"/> 在線
               </span>
-              {/* Theme Switcher Button */}
               <button onClick={handleThemeCycle} className={`flex items-center gap-1.5 ${theme.colors.cardBlur} px-3 py-1 rounded-full border ${theme.colors.border} shadow-sm hover:opacity-80 transition-opacity`}>
                  <Palette size={10} className={theme.colors.accent}/>
                  <span className="font-bold">切換主題</span>
@@ -405,8 +383,8 @@ const DashboardHeader = ({ memberCount, activeDay, onDayChange, totalDays, theme
                   <span className={`text-[10px] font-bold ${theme.colors.subtext}`}>{dateStr}</span>
                </div>
                <div className={`flex items-center gap-2 px-3 py-1 rounded-lg ${theme.colors.accentBg} text-white shadow-md`}>
-                 <WeatherIcon size={12} className={weather.text.includes('雨') ? 'text-blue-200' : 'text-yellow-100'}/> 
-                 <span className="text-[10px] font-bold">{regionName} {weather.temp}°C {weather.text}</span>
+                  <WeatherIcon size={12} className={weather.text.includes('雨') ? 'text-blue-200' : 'text-yellow-100'}/> 
+                  <span className="text-[10px] font-bold">{regionName} {weather.temp}°C {weather.text}</span>
                </div>
             </div>
           </div>
@@ -425,7 +403,7 @@ const DashboardHeader = ({ memberCount, activeDay, onDayChange, totalDays, theme
   );
 };
 
-// --- V2.1: Stable Leaflet Map (Fixes White Screen & CSS) ---
+// --- Leaflet Map ---
 const LeafletMap = ({ items, activeRegion, theme, setActiveRegion, setEditingItem }) => {
   const mapContainerRef = useRef(null);
   const mapInstanceRef = useRef(null);
@@ -433,7 +411,6 @@ const LeafletMap = ({ items, activeRegion, theme, setActiveRegion, setEditingIte
   const polylineRef = useRef(null);
   const [isLoading, setIsLoading] = useState(true);
 
-  // 1. Robust Script Loading
   useEffect(() => {
     const loadLeaflet = async () => {
       if (document.getElementById('leaflet-css')) {
@@ -462,7 +439,6 @@ const LeafletMap = ({ items, activeRegion, theme, setActiveRegion, setEditingIte
     };
   }, []);
 
-  // 2. Initialize Map with size invalidation fix
   const initMap = () => {
     if (mapInstanceRef.current || !mapContainerRef.current || !window.L) return;
     
@@ -472,13 +448,11 @@ const LeafletMap = ({ items, activeRegion, theme, setActiveRegion, setEditingIte
         attributionControl: false
     }).setView([region.lat, region.lng], region.zoom);
 
-    // Force re-layout to prevent gray/blank tiles
     setTimeout(() => { map.invalidateSize(); }, 200);
     
     mapInstanceRef.current = map;
   };
 
-  // 3. Update Layers & View
   useEffect(() => {
       if (!mapInstanceRef.current || !window.L) return;
       const map = mapInstanceRef.current;
@@ -495,11 +469,10 @@ const LeafletMap = ({ items, activeRegion, theme, setActiveRegion, setEditingIte
       const region = REGION_COORDS[activeRegion];
       map.flyTo([region.lat, region.lng], region.zoom);
       
-      setTimeout(() => map.invalidateSize(), 200); // Critical fix
+      setTimeout(() => map.invalidateSize(), 200);
 
   }, [activeRegion, theme]);
 
-  // 4. Render Markers & Path
   useEffect(() => {
       if (!mapInstanceRef.current || !window.L) return;
       const map = mapInstanceRef.current;
@@ -527,7 +500,6 @@ const LeafletMap = ({ items, activeRegion, theme, setActiveRegion, setEditingIte
           const customIcon = window.L.divIcon({ className: 'custom-marker-icon', html: iconHtml, iconSize: [28, 28], iconAnchor: [14, 14], popupAnchor: [0, -14] });
           const marker = window.L.marker([lat, lng], { icon: customIcon }).addTo(map)
               .bindPopup(`<div style="font-family: system-ui; min-width: 160px;"><strong style="font-size: 14px;">${item.title}</strong><br/><span style="color: #666; font-size: 12px;">${item.time}</span><br/><a href="https://www.google.com/maps/search/?api=1&query=${lat},${lng}" target="_blank" style="display: block; margin-top: 8px; padding: 6px; background: #3b82f6; color: white; text-decoration: none; font-weight: bold; font-size: 12px; text-align: center; border-radius: 6px;">導航 (Google Maps)</a></div>`)
-              // V2.1.1: Center map on marker click
               .on('click', () => {
                   map.flyTo([lat, lng], 16, { animate: true, duration: 1.5 });
               });
@@ -543,7 +515,6 @@ const LeafletMap = ({ items, activeRegion, theme, setActiveRegion, setEditingIte
       }
   }, [items, theme]);
 
-  // Custom Controls
   const handleZoomIn = () => { if(mapInstanceRef.current) mapInstanceRef.current.zoomIn(); };
   const handleZoomOut = () => { if(mapInstanceRef.current) mapInstanceRef.current.zoomOut(); };
   const handleAutoLocate = () => { 
@@ -568,7 +539,6 @@ const LeafletMap = ({ items, activeRegion, theme, setActiveRegion, setEditingIte
        )}
        <div ref={mapContainerRef} className="w-full h-full z-0" style={{ background: theme.colors.bg, isolation: 'isolate' }} />
        
-       {/* Region Switcher */}
        <div className="absolute top-4 left-4 z-[400] flex flex-col gap-2">
          <div className={`${theme.colors.cardBlur} backdrop-blur border ${theme.colors.border} p-1 rounded-xl flex flex-col gap-1 shadow-lg`}>
             {Object.entries(REGION_COORDS).map(([key, val]) => (
@@ -577,7 +547,6 @@ const LeafletMap = ({ items, activeRegion, theme, setActiveRegion, setEditingIte
          </div>
       </div>
 
-      {/* Zoom Controls */}
       <div className="absolute top-20 right-4 z-[500] flex flex-col gap-3 pointer-events-auto">
         <div className={`${theme.colors.cardBlur} backdrop-blur rounded-xl border ${theme.colors.border} overflow-hidden flex flex-col shadow-lg`}>
             <button onClick={handleZoomIn} className={`p-3 ${theme.colors.accent} hover:${theme.colors.bg} border-b ${theme.colors.border}`}><ZoomIn size={20}/></button>
@@ -603,7 +572,7 @@ const SearchTab = ({ itinerary, setActiveDay, setEditingItem, setViewMode, theme
             <div className={`text-xs font-bold ${theme.colors.subtext} uppercase tracking-wider ml-1 mb-2`}>進階搜尋</div>
             <div className="grid grid-cols-2 gap-3">
                 <a href={getSearchUrl('maps', query)} target="_blank" rel="noopener noreferrer" className={`${theme.colors.card} p-3 rounded-xl flex items-center gap-3 ${theme.colors.subtext} hover:${theme.colors.bg} hover:${theme.colors.text} border ${theme.colors.border} transition-colors`}><MapPin size={18} className="text-red-400"/> <span className="text-sm font-bold">Google 地圖</span></a>
-                <a href={getSearchUrl('images', query)} target="_blank" rel="noopener noreferrer" className={`${theme.colors.card} p-3 rounded-xl flex items-center gap-3 ${theme.colors.subtext} hover:${theme.colors.bg} hover:${theme.colors.text} border ${theme.colors.border} transition-colors`}><Image size={18} className="text-yellow-400"/> <span className="text-sm font-bold">圖片搜尋</span></a>
+                <a href={getSearchUrl('images', query)} target="_blank" rel="noopener noreferrer" className={`${theme.colors.card} p-3 rounded-xl flex items-center gap-3 ${theme.colors.subtext} hover:${theme.colors.bg} hover:${theme.colors.text} border ${theme.colors.border} transition-colors`}><ImageIcon size={18} className="text-yellow-400"/> <span className="text-sm font-bold">圖片搜尋</span></a>
                 <a href={getSearchUrl('hotel', query)} target="_blank" rel="noopener noreferrer" className={`col-span-2 ${theme.colors.card} p-3 rounded-xl flex items-center justify-center gap-3 ${theme.colors.subtext} hover:${theme.colors.bg} hover:${theme.colors.text} border ${theme.colors.border} transition-colors`}><Hotel size={18} className="text-purple-400"/> <span className="text-sm font-bold">找附近飯店</span></a>
             </div>
             {localResults.length === 0 && (
@@ -630,7 +599,13 @@ const EditModal = ({ editingItem, setEditingItem, travelers, handleSave, handleD
   useEffect(() => { if (!cost.targets || Object.keys(cost.targets).length === 0) { const t = {}; travelers.forEach(m => t[m] = true); setCost(prev => ({ ...prev, targets: t })); } }, []);
   const updateCost = (k, v) => setCost(p => ({ ...p, [k]: v }));
   const handleFileUpload = (e) => { const file = e.target.files[0]; if (file) { const objectUrl = URL.createObjectURL(file); setData(prev => ({ ...prev, image: objectUrl })); }};
-  const setRandomImage = () => { const randomId = Math.floor(Math.random() * 1000); const url = `https://source.unsplash.com/random/800x600/?tokyo,travel,japan&sig=${randomId}`; setData(prev => ({ ...prev, image: url })); };
+  
+  const setRandomImage = () => { 
+      const randomId = Math.floor(Math.random() * 1000); 
+      // 使用 picsum 取代失效的 Unsplash source
+      const url = `https://picsum.photos/seed/${randomId}/800/600`; 
+      setData(prev => ({ ...prev, image: url })); 
+  };
 
   const handleAutoLocate = async () => {
     if(!data.location) return;
@@ -693,9 +668,9 @@ const EditModal = ({ editingItem, setEditingItem, travelers, handleSave, handleD
            </div>
 
            <div className={`${theme.colors.card} p-4 rounded-xl border ${theme.colors.border} space-y-4`}>
-              <div className={`flex items-center gap-2 ${theme.colors.subtext} font-bold border-b ${theme.colors.border} pb-2`}><Wallet size={16}/> 費用與分帳</div>
-              <div className="flex gap-3"><div className="flex-1"><label className={`text-[10px] ${theme.colors.subtext} block mb-1`}>總金額 (¥)</label><input type="number" value={cost.total} onChange={e=>updateCost('total', parseFloat(e.target.value)||0)} className={`w-full ${theme.colors.bg} border ${theme.colors.border} rounded p-2 ${theme.colors.text} font-mono`}/></div><div className="flex-1"><label className={`text-[10px] ${theme.colors.subtext} block mb-1`}>先付者</label><select value={cost.payer} onChange={e=>updateCost('payer', e.target.value)} className={`w-full ${theme.colors.bg} border ${theme.colors.border} rounded p-2 ${theme.colors.text}`}>{travelers.map(t=><option key={t} value={t}>{t}</option>)}</select></div></div>
-              <div className="space-y-1">{travelers.map(t => { const active = cost.targets?.[t] !== false; return (<div key={t} onClick={() => updateCost('targets', { ...cost.targets, [t]: !active })} className={`flex items-center justify-between p-2 rounded cursor-pointer border ${active ? `${theme.colors.bg} ${theme.colors.accentBorder}` : 'border-transparent opacity-50'}`}><span className={`text-sm ${theme.colors.subtext}`}>{t}</span>{active && <Check size={14} className={theme.colors.accent}/>}</div>)})}</div>
+             <div className={`flex items-center gap-2 ${theme.colors.subtext} font-bold border-b ${theme.colors.border} pb-2`}><Wallet size={16}/> 費用與分帳</div>
+             <div className="flex gap-3"><div className="flex-1"><label className={`text-[10px] ${theme.colors.subtext} block mb-1`}>總金額 (¥)</label><input type="number" value={cost.total} onChange={e=>updateCost('total', parseFloat(e.target.value)||0)} className={`w-full ${theme.colors.bg} border ${theme.colors.border} rounded p-2 ${theme.colors.text} font-mono`}/></div><div className="flex-1"><label className={`text-[10px] ${theme.colors.subtext} block mb-1`}>先付者</label><select value={cost.payer} onChange={e=>updateCost('payer', e.target.value)} className={`w-full ${theme.colors.bg} border ${theme.colors.border} rounded p-2 ${theme.colors.text}`}>{travelers.map(t=><option key={t} value={t}>{t}</option>)}</select></div></div>
+             <div className="space-y-1">{travelers.map(t => { const active = cost.targets?.[t] !== false; return (<div key={t} onClick={() => updateCost('targets', { ...cost.targets, [t]: !active })} className={`flex items-center justify-between p-2 rounded cursor-pointer border ${active ? `${theme.colors.bg} ${theme.colors.accentBorder}` : 'border-transparent opacity-50'}`}><span className={`text-sm ${theme.colors.subtext}`}>{t}</span>{active && <Check size={14} className={theme.colors.accent}/>}</div>)})}</div>
            </div>
            
            <div className="flex gap-3 pt-4 pb-8">
@@ -767,7 +742,7 @@ export default function App() {
   const [totalDays, setTotalDays] = useState(6);
   const [editingItem, setEditingItem] = useState(null);
   const [showBudgetModal, setShowBudgetModal] = useState(false);
-  const [activeRegion, setActiveRegion] = useState('tokyo'); // Lifted state
+  const [activeRegion, setActiveRegion] = useState('tokyo'); 
   const contentRef = useRef(null);
 
   useEffect(() => { if (contentRef.current) contentRef.current.scrollTop = 0; }, [viewMode]);
@@ -776,7 +751,6 @@ export default function App() {
   const handleAddItem = () => { const initialTargets = {}; travelers.forEach(t => initialTargets[t] = true); setEditingItem({ id: Date.now().toString(), day: activeDay, time: '12:00', title: '', category: 'other', location: '', notes: '', image: '', mapUrl: '', cost: { total: 0, payer: travelers[0], mode: 'even', targets: initialTargets, customAmounts: {} }}); };
   const handleSave = (item) => { setItinerary(prev => { const exists = prev.find(i => i.id === item.id); return exists ? prev.map(i => i.id === item.id ? item : i) : [...prev, item]; }); setEditingItem(null); };
   
-  // UI-based delete handler passed to EditModal (state logic moved to EditModal)
   const handleDelete = (id) => { 
       setItinerary(prev => prev.filter(i => i.id !== id)); 
       setEditingItem(null);
@@ -784,13 +758,18 @@ export default function App() {
 
   return (
     <div className={`h-[100dvh] ${currentTheme.colors.bg} font-sans ${currentTheme.colors.text} overflow-hidden flex flex-col relative transition-colors duration-500`}>
-      {/* Pass activeRegion to Header */}
       <DashboardHeader memberCount={travelers.length} activeDay={activeDay} onDayChange={setActiveDay} totalDays={totalDays} theme={currentTheme} activeRegion={activeRegion} setTheme={setTheme}/>
       
-      <div ref={contentRef} className="flex-1 overflow-y-auto relative scroll-smooth">
+      <div ref={contentRef} className="flex-1 overflow-y-auto relative scroll-smooth flex flex-col">
         {viewMode === 'list' && <TimelineList items={dayItems} setEditingItem={setEditingItem} handleAddItem={handleAddItem} theme={currentTheme} />}
-        {/* Pass activeRegion and setter to LeafletMap */}
-        {viewMode === 'map' && <LeafletMap items={dayItems} activeRegion={activeRegion} theme={currentTheme} setActiveRegion={setActiveRegion} setEditingItem={setEditingItem}/>}
+        
+        {/* 修正：地圖模式下確保容器填滿剩餘空間 */}
+        {viewMode === 'map' && (
+            <div className="flex-1 w-full h-full min-h-0 relative">
+                <LeafletMap items={dayItems} activeRegion={activeRegion} theme={currentTheme} setActiveRegion={setActiveRegion} setEditingItem={setEditingItem}/>
+            </div>
+        )}
+        
         {viewMode === 'search' && <SearchTab itinerary={itinerary} setActiveDay={setActiveDay} setEditingItem={setEditingItem} setViewMode={setViewMode} theme={currentTheme} />}
         {viewMode === 'settings' && <SettingsTab totalDays={totalDays} setTotalDays={setTotalDays} travelers={travelers} setTravelers={setTravelers} currentTheme={currentTheme} setTheme={setTheme}/>}
       </div>
@@ -804,5 +783,5 @@ export default function App() {
       <BudgetReportModal isOpen={showBudgetModal} onClose={() => setShowBudgetModal(false)} itinerary={itinerary} travelers={travelers} theme={currentTheme}/>
       {editingItem && <EditModal key={editingItem.id} editingItem={editingItem} setEditingItem={setEditingItem} travelers={travelers} handleSave={handleSave} handleDelete={handleDelete} theme={currentTheme}/>}
     </div>
-  );
+  );   
 }
